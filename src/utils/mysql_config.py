@@ -264,7 +264,6 @@ class MySQLManager:
         return count
 
 def test_mysql_connection():
-    import sys
     connection = None
     try:
         # First, try connecting without specifying a database

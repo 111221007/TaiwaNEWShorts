@@ -166,4 +166,4 @@ if __name__ == '__main__':
         app.run(debug=True, host='0.0.0.0', port=port)
     finally:
         # Ensure MySQL connection is closed when app shuts down
-        mysql_manager.close_connection()
+        news_service.mysql_manager.close_connection()
