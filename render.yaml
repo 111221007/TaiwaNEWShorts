@@ -4,10 +4,9 @@ services:
     env: python
     region: oregon
     plan: free
-    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
-    startCommand: gunicorn --bind 0.0.0.0:$PORT src.api.app:app
+    pythonVersion: "3.11.9"
+    buildCommand: pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 1 --timeout 120 src.api.app:app
     envVars:
       - key: PYTHONPATH
         value: /opt/render/project/src
-      - key: PYTHON_VERSION
-        value: 3.11.9

@@ -1,14 +1,8 @@
 flask==3.0.0
 requests==2.31.0
 beautifulsoup4==4.12.2
-firebase-admin==6.5.0
-pandas>=2.1.0
 schedule==1.2.2
 apscheduler==3.10.4
 python-dotenv==1.0.0
 gunicorn==21.2.0
-lxml==4.9.3
-html5lib==1.1
-nltk==3.8.1
-numpy>=1.24.0
 mysql-connector-python==8.2.0
