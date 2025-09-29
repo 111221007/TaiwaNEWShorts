@@ -3,7 +3,7 @@
 from datetime import datetime
 
 class Article:
-    def __init__(self, title, summary, content, url, image_url, category, source, scraped_at=None, published_at=None):
+    def __init__(self, title, summary, content, url, image_url, category, source, scraped_at=None, published_at=None, **kwargs):
         self.title = title
         self.summary = summary
         self.content = content
@@ -13,6 +13,12 @@ class Article:
         self.source = source
         self.scraped_at = scraped_at or datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         self.published_at = published_at
+
+        # Handle additional fields that might be passed (like 'date', 'link', etc.)
+        # but don't break if they're provided
+        for key, value in kwargs.items():
+            if not hasattr(self, key):
+                setattr(self, key, value)
 
     def to_dict(self):
         return {
@@ -26,4 +32,3 @@ class Article:
             'scraped_at': self.scraped_at,
             'published_at': self.published_at
         }
-
