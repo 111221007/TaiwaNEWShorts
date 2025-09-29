@@ -3,9 +3,7 @@ services:
     name: taiwanewshorts
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python src/api/app.py
+    startCommand: gunicorn --bind 0.0.0.0:$PORT src.api.app:app
     envVars:
-      - key: PORT
-        value: 10000
       - key: PYTHONPATH
         value: /opt/render/project/src
